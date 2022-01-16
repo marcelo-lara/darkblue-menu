@@ -1,11 +1,13 @@
 FROM node:16
 WORKDIR /usr/src/app
 
-## build
-COPY package*.json ./
+## build server
+COPY ./package*.json ./
 RUN npm install
 COPY . .
 
+## build client
+
 ## run
-EXPOSE 8080
+EXPOSE 5010
 CMD [ "node", "server.js" ]

@@ -1,0 +1,22 @@
+version: '3'
+services:
+
+  app:
+    build: .
+    restart: always
+    depends_on:
+      - database
+    ports:
+      - 5010:5010
+
+  database:
+    image: mongo:4
+    restart: always
+    environment:
+      - MONGO_INITDB_DATABASE=darkblue-menu
+      - MONGO_INITDB_ROOT_USERNAME=my-root-user
+      - MONGO_INITDB_ROOT_PASSWORD=my-root-password
+    volumes:
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+    ports:
+      - '27017-27019:27017-27019'
