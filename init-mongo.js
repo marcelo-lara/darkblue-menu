@@ -1,5 +1,3 @@
-print('Start #################################################################');
-
 db = db.getSiblingDB('darkblue-menu');
 db.createUser(
   {
@@ -9,6 +7,3 @@ db.createUser(
   },
 );
 db.createCollection('users');
-
-
-print('END #################################################################');
