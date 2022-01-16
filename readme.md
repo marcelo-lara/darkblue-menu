@@ -2,7 +2,7 @@
 
 ## Abstract
 
-Hungry and don't know what for dinner? What's on the freezer? Well, here's the (freezer) Cheff suggestions.
+Hungry and don't know what's for dinner? What's on the freezer? Well, here's the (freezer) Cheff suggestions.
 
 ### Objectives
 
