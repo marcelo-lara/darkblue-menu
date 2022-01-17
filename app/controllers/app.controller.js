@@ -2,10 +2,13 @@ const App = require("../model/app.model.js");
 
 // Create and Save a new Message
 exports.create = (req, res) => {
-  const message = new App({
-    message: req.body.message,
+  const item = new App({
+    title: req.body.title,
+    description: req.body.description,
+    qty: req.body.qty,
+    tags: req.body.tags || [],
   });
-  message
+  item
     .save()
     .then((data) => {
       res.send(data);
@@ -18,7 +21,7 @@ exports.create = (req, res) => {
     });
 };
 
-// Retrieve all messages from the database.
+// Retrieve all items from the database.
 exports.findAll = (req, res) => {
   App.find()
     .then((data) => {
@@ -27,18 +30,18 @@ exports.findAll = (req, res) => {
     .catch((err) => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving messages.",
+          err.message || "Some error occurred while retrieving items.",
       });
     });
 };
 
-// Find a single message with a messageId
+// Find a single message with a id
 exports.findOne = (req, res) => {
-  App.findById(req.params.messageId)
+  App.findById(req.params.id)
     .then((data) => {
       if (!data) {
         return res.status(404).send({
-          message: "Message not found with id " + req.params.messageId,
+          message: "items not found with id " + req.params.id,
         });
       }
       res.send(data);
@@ -46,19 +49,19 @@ exports.findOne = (req, res) => {
     .catch((err) => {
       if (err.kind === "ObjectId") {
         return res.status(404).send({
-          message: "Message not found with id " + req.params.messageId,
+          message: "items not found with id " + req.params.id,
         });
       }
       return res.status(500).send({
-        message: "Error retrieving message with id " + req.params.messageId,
+        message: "Error retrieving items with id " + req.params.id,
       });
     });
 };
 
-// Update a message identified by the messageId in the request
+// Update an item identified by the itemId in the request
 exports.update = (req, res) => {
   App.findByIdAndUpdate(
-    req.params.messageId,
+    req.params.id,
     {
       message: req.body.message,
     },
@@ -67,7 +70,7 @@ exports.update = (req, res) => {
     .then((data) => {
       if (!data) {
         return res.status(404).send({
-          message: "Message not found with id " + req.params.messageId,
+          message: "Item not found with id " + req.params.id,
         });
       }
       res.send(data);
@@ -75,34 +78,34 @@ exports.update = (req, res) => {
     .catch((err) => {
       if (err.kind === "ObjectId") {
         return res.status(404).send({
-          message: "Message not found with id " + req.params.messageId,
+          message: "Item not found with id " + req.params.id,
         });
       }
       return res.status(500).send({
-        message: "Error updating message with id " + req.params.messageId,
+        message: "Error updating item with id " + req.params.id,
       });
     });
 };
 
-// Delete a message with the specified messageId in the request
+// Delete a message with the specified id in the request
 exports.delete = (req, res) => {
-  App.findByIdAndRemove(req.params.messageId)
+  App.findByIdAndRemove(req.params.id)
     .then((data) => {
       if (!data) {
         return res.status(404).send({
-          message: "Message not found with id " + req.params.messageId,
+          message: "Item not found with id " + req.params.id,
         });
       }
-      res.send({ message: "Message deleted successfully!" });
+      res.send({ message: "Item deleted successfully!" });
     })
     .catch((err) => {
       if (err.kind === "ObjectId" || err.name === "NotFound") {
         return res.status(404).send({
-          message: "Message not found with id " + req.params.messageId,
+          message: "Item not found with id " + req.params.id,
         });
       }
       return res.status(500).send({
-        message: "Could not delete message with id " + req.params.messageId,
+        message: "Could not delete item with id " + req.params.id,
       });
     });
 };

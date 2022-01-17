@@ -1,7 +1,11 @@
 const mongoose = require("mongoose");
 
-const AppSchema = mongoose.Schema({
-  message: String,
+const itemSchema = mongoose.Schema({
+  title: String,
+  description: String,
+  qty: Number,
+  tags: Array,
+
 });
 
-module.exports = mongoose.model("App", AppSchema);
+module.exports = mongoose.model("Item", itemSchema);
