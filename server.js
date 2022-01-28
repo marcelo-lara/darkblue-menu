@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 require('./app/routes/app.routes.js')(app);
 
 //static file server
-app.use(express.static('./client/src'))
+app.use(express.static('/webapp'))
 
 //fallback
 app.get("/", (req, res) => { res.json({ message: "Server is running :D" }); });
