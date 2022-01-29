@@ -1,0 +1,7 @@
+.image__container {
+    width: 25%;
+    margin: 1rem auto;
+    padding-top: 25%;
+    border: 1px solid #000;
+    background-size: cover;
+}

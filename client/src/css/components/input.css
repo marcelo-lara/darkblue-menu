@@ -1,0 +1,17 @@
+.input__container {
+    margin-top: 1rem;
+}
+
+.input__label {
+    font-weight: 600;
+}
+
+.input__input {
+    display: block;
+    color: #333;
+    margin: 0 auto;
+    padding: 1.25rem 1.875rem;
+    border-radius: 3px;
+    background-color: #fff;
+    width: 25rem;
+}

@@ -1,0 +1,27 @@
+.button__label {
+    background-color: #8E24AA;
+    border-radius: 5px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    height: 2.5rem;
+    line-height: 1.25rem;
+    margin: 0;
+    outline: none;
+    padding: 0.625rem 1rem;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: color 100ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.button__label:hover {
+    background-color: #6A1B9A;
+}
