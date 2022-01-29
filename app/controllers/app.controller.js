@@ -6,6 +6,9 @@ exports.create = (req, res) => {
     title: req.body.title,
     description: req.body.description,
     qty: req.body.qty,
+    addDate: req.body.addDate || new Date(),
+    voidDate: req.body.voidDate || null,
+    rating: req.body.rating || 3,
     tags: req.body.tags || [],
   });
   item
