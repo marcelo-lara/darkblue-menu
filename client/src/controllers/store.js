@@ -1,7 +1,7 @@
 'use strict'
 
 ///////////////////////////////////////////////////////////////////////////////////
-const addItem = async item => {
+export const addItem = async item => {
   const response = await fetch('/api/items', {
     method: 'POST',
     body: JSON.stringify(item),
@@ -16,7 +16,7 @@ const addItem = async item => {
   console.log('addItem> something went wrong..', response)
 }
 
-const getItems = async () => {
+export const getItems = async () => {
   const response = await fetch('/api/items')
 
   if (response.status == 200) {
@@ -29,7 +29,7 @@ const getItems = async () => {
   return []
 }
 
-const getItem = async item => {
+export const getItem = async item => {
   const response = await fetch('/api/items/' + item._id)
 
   if (response.status == 200) {
@@ -40,7 +40,7 @@ const getItem = async item => {
   console.log('addItem> something went wrong..', response)
 }
 
-const delItem = async item => {
+export const delItem = async item => {
   const response = await fetch('/api/items/' + item._id, {
     method: 'DELETE',
     body: JSON.stringify(item),
@@ -55,7 +55,7 @@ const delItem = async item => {
   console.log('addItem> something went wrong..', response)
 }
 
-const updateItem = async item => {
+export const updateItem = async item => {
   const response = await fetch('/api/items/' + item._id, {
     method: 'PUT',
     body: JSON.stringify(item),
@@ -86,11 +86,11 @@ const _setTagsList = items => {
   _tagsList = [...new Set(_tagsList)].sort();
 }
 
-const getTagsList = async () => {
+export const getTagsList = async () => {
   return _tagsList;
 }
 
-const getItemsByTags = async tags => {
+export const getItemsByTags = async tags => {
   let matchItems = await getItems();
 
   for (const t of tags) {
@@ -99,3 +99,5 @@ const getItemsByTags = async tags => {
 
   return matchItems;
 }
+
+//export default {addItem, delItem, getItem, getItems, getItemsByTags, getTagsList }

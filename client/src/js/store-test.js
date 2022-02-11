@@ -1,3 +1,5 @@
+import {addItem, getItem, delItem, getItems, getItemsByTags, getTagsList, updateItem} from '../controllers/store.js';
+
 (async ()=>{
 
     // 1 create
