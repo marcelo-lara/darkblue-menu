@@ -22,11 +22,13 @@ class Item {
     render() {
         const placeholder = document.createElement('div');
         placeholder.innerHTML = `
-        <div>
+        <div class="productCard">
             <h3 class="title">${this.title}</h3>
-            <div class="description">${this.description}</div>
-            <span class="tags">${this.tags}</span>
-            <span class="qty">Cantidad: ${this.qty}</span>
+            <p class="description">${this.description}</p>
+            <div class="tags">
+            <span>${this.tags}</span>
+            </div>
+            <div class="qty">Cantidad: <span>${this.qty}</span></div>
             <button class="button pick">Pick</button>
         </div>
       `;
